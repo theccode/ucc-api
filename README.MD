@@ -52,7 +52,7 @@ regno=”PS/CSC/17/00**” password=”password”
 
 ![request](https://user-images.githubusercontent.com/7442471/187428648-2bba12ef-ddb8-4549-9f3b-771d237b7500.png)
 
-Response:
+### Response:
 1.	Access Token – used for accessing the student’s details
 2.	New Token – used for generating new access token when the access token expires.
 An access token can be used to retrieve student’s data by making a request that include the access token in the authorization header of the http request like so:
@@ -156,9 +156,9 @@ X-Powered-By: PHP/8.0.8
     "workplace_id": ""
 }
 
-WHAT COULD GO WRONG
+## WHAT COULD GO WRONG
 
-Wrong regno or password 
+### Wrong regno or password 
 
 http post http://api.ucc.edu.test/academic/login.php regno="PS/CSC/17/0066" password="am"
 HTTP/1.1 401 Unauthorized
@@ -194,4 +194,7 @@ X-Powered-By: PHP/8.0.8
 |ENDPOINT | RESPONSE | DESCRIPTION|
 |---------|----------|------------| 
 | http://api.ucc.edu.test/academic/login | Access token, renew token | Can be used to retrieve a resource from the database |
-
+| http://api.ucc.edu.test/academic/renew |New Access token and renew token| Can be used to generate new access and renew tokens when the access token expires |
+| http://api.ucc.edu.test/academic/student |resource e.g. student profile |Used to obtain student’s profile details|
+| http://api.ucc.edu.test/academic/logout | Deletes access token | Removes the user’s access token and deny’s access to a resource from the server |
+| http://api.ucc.edu.test/academic/cron |Deletes expired tokens |Removes all expired tokens  and logs users out|
