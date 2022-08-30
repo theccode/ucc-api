@@ -76,6 +76,7 @@ Using the new access token to retrieve a student record will yield the following
 
 http http://api.ucc.edu.test/academic/student "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTU1OTE5Mjh9.GL6SbQRhfdvWPlIicC6pcbNCF0Z5_p7uO2SrP7KqS0s"
 
+```
 HTTP/1.1 200 OK
 Connection: Keep-Alive
 Content-Type: application/json; charset:UTF-8
@@ -155,11 +156,13 @@ X-Powered-By: PHP/8.0.8
     "withdrawn": null,
     "workplace_id": ""
 }
+```
 
 ## WHAT COULD GO WRONG
 
-### Wrong regno or password 
+###### Wrong regno or password 
 
+```
 http post http://api.ucc.edu.test/academic/login.php regno="PS/CSC/17/0066" password="am"
 HTTP/1.1 401 Unauthorized
 Connection: Keep-Alive
@@ -173,9 +176,10 @@ X-Powered-By: PHP/8.0.8
 {
     "message": "Invalid credentials!"
 }
+```
 
-Absence of a bearer or access token
-
+###### Absence of a bearer or access token
+```
 http http://api.ucc.edu.test/academic/student "Authorization:Bearer "
 HTTP/1.1 400 Bad Request
 Connection: close
@@ -188,7 +192,7 @@ X-Powered-By: PHP/8.0.8
 {
     "message": "Incomplete authorization header [e.g. Authorization:Bearer...]"
 }
-
+```
 # USEFUL ENDPOINTS
 -----------------------------------
 |ENDPOINT | RESPONSE | DESCRIPTION|
