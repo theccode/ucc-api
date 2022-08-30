@@ -87,15 +87,15 @@ Transfer-Encoding: chunked
 X-Powered-By: PHP/8.0.8
 
 {
-    "admission_no": "201736606",
-    "alt_email": "akonobeajosiefyn@gmail.com",
+    "admission_no": "2017300006",
+    "alt_email": "joe@example.com",
     "applicant_id": 201736606,
     "bank_account": null,
     "bank_branchid": null,
     "biometric_enrolment": 0,
     "biometric_enrolment_date": null,
     "card_print": 0,
-    "cellphone": "0245158569",
+    "cellphone": "000000000",
     "centreid": 1,
     "cert_no": null,
     "cgpa": null,
@@ -109,7 +109,7 @@ X-Powered-By: PHP/8.0.8
     "email": "",
     "entry_modeid": null,
     "entrylevel": "100",
-    "fname": "JOSEPHINE",
+    "fname": "JANE",
     "gps_address": "",
     "graduate": 0,
     "hall": "OGUAA HALL",
@@ -118,27 +118,27 @@ X-Powered-By: PHP/8.0.8
     "homephone": "0245158569",
     "hometown": "PRAMKESSE",
     "idcardstatus": 0,
-    "inst_email": "jbekoe@stu.ucc.edu.gh",
+    "inst_email": "joe@exmple.com",
     "level": "400",
-    "lname": "BEKOE",
+    "lname": "BENDA",
     "loan_take_times": null,
     "major": "COMPUTER SCIENCE",
     "majorid": "01967",
     "marital_status": "Single",
-    "mname": "AKONOBEA",
+    "mname": "AMA",
     "nationality": "GHANAIAN",
     "nationalityid": 0,
     "non_res_add": "",
     "paytype": "NR",
     "pob_region": null,
-    "pob_town": "KOFORIDUA",
-    "post_box": "C/ONAA ADJELEY S.A. SEKYI, DEPT. OF SOC. & ANTHRO.",
+    "pob_town": "KETA",
+    "post_box": "PMB.",
     "post_town": "UCC, CAPE COAST",
     "previous_name": null,
     "progid": "BSCCSC",
     "program": "BSC. ( COMP. SCIENCE)",
-    "ref_no": "RF16/201736606",
-    "regno": "PS/CSC/17/0066",
+    "ref_no": "RF16/000000000",
+    "regno": "PS/CSC/15/0000",
     "resident_status": "",
     "room_no": "E63",
     "schoolid": 0,
@@ -156,13 +156,13 @@ X-Powered-By: PHP/8.0.8
     "withdrawn": null,
     "workplace_id": ""
 }
-```
+
 
 ## WHAT COULD GO WRONG
 
 ###### Wrong regno or password 
 
-```
+
 http post http://api.ucc.edu.test/academic/login.php regno="PS/CSC/17/0066" password="am"
 HTTP/1.1 401 Unauthorized
 Connection: Keep-Alive
@@ -197,8 +197,8 @@ X-Powered-By: PHP/8.0.8
 -----------------------------------
 |ENDPOINT | RESPONSE | DESCRIPTION|
 |---------|----------|------------| 
-| http://api.ucc.edu.test/academic/login | Access token, renew token | Can be used to retrieve a resource from the database |
-| http://api.ucc.edu.test/academic/renew |New Access token and renew token| Can be used to generate new access and renew tokens when the access token expires |
-| http://api.ucc.edu.test/academic/student |resource e.g. student profile |Used to obtain student’s profile details|
-| http://api.ucc.edu.test/academic/logout | Deletes access token | Removes the user’s access token and deny’s access to a resource from the server |
-| http://api.ucc.edu.test/academic/cron |Deletes expired tokens |Removes all expired tokens  and logs users out|
+| ```http://api.ucc.edu.test/academic/login``` | Access token, renew token | Can be used to retrieve a resource from the database |
+| ```http://api.ucc.edu.test/academic/renew``` |New Access token and renew token| Can be used to generate new access and renew tokens when the access token expires |
+| ```http://api.ucc.edu.test/academic/student``` |resource e.g. student profile |Used to obtain student’s profile details|
+| ```http://api.ucc.edu.test/academic/logout``` | Deletes access token | Removes the user’s access token and deny’s access to a resource from the server |
+| ```http://api.ucc.edu.test/academic/cron``` |Deletes expired tokens |Removes all expired tokens  and logs users out|
