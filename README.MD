@@ -59,12 +59,13 @@ An access token can be used to retrieve student’s data by making a request tha
 http http://api.ucc.edu.test/academic/student "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTU1OTA1MjF9.XmfHfloV9xJ6kfZVnze0BouS4mYJeX3NGHV1Ygbj8sw"
 
 For the purpose of our demonstration, the access token is set to expire in 20s. When an access token expires, a student’s detail cannot be obtained by the expired token and therefore a new one should be generated using the value of the new_token property in the response body of our request. 
-![image](https://user-images.githubusercontent.com/7442471/187428753-266c1179-c353-4061-bcc7-1540310b089f.png)
 
+![token_expired](https://user-images.githubusercontent.com/7442471/187429865-f76fe393-d14e-464e-8b53-36193935f240.png)
  
 
 A new access token can be requested through the following endpoint using the new_token value:
 http http://api.ucc.edu.test/academic/renew.php token=eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTYwMjM3OTV9.RaAXe5LWcXeBUJsmdMWJnQvtQf3nzRGdI8zNpFXf9Os
+![new_access_token](https://user-images.githubusercontent.com/7442471/187430026-57e9e270-b0b6-447b-b772-4bf53ce628ef.png)
 
 
 The new access token can be used to request a resource in the following way:
@@ -188,4 +189,9 @@ X-Powered-By: PHP/8.0.8
     "message": "Incomplete authorization header [e.g. Authorization:Bearer...]"
 }
 
-![image](https://user-images.githubusercontent.com/7442471/187428890-3191ff0f-26d0-4d14-82a2-f19891b47259.png)
+# USEFUL ENDPOINTS
+-----------------------------------
+|ENDPOINT | RESPONSE | DESCRIPTION|
+|---------|----------|------------| 
+| http://api.ucc.edu.test/academic/login | Access token, renew token | Can be used to retrieve a resource from the database |
+
