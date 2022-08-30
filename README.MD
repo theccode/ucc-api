@@ -156,13 +156,13 @@ X-Powered-By: PHP/8.0.8
     "withdrawn": null,
     "workplace_id": ""
 }
-
+```
 
 ## WHAT COULD GO WRONG
 
 ###### Wrong regno or password 
 
-
+```
 http post http://api.ucc.edu.test/academic/login.php regno="PS/CSC/17/0066" password="am"
 HTTP/1.1 401 Unauthorized
 Connection: Keep-Alive
