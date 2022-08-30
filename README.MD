@@ -39,7 +39,7 @@ HTTPie client. There are other alternatives to HTTPie like postman and curl as s
 
 # WELCOME
 Let’s begin by testing our setup. Open a terminal and type the following command:
-http http://api.ucc.edu.test/academic/test.php
+```http http://api.ucc.edu.test/academic/test.php```
 
 ![Welcome](https://user-images.githubusercontent.com/7442471/187428206-31d74e91-5d09-49ae-aba2-c0b758d67367.png)
 
@@ -48,7 +48,7 @@ The response will be a welcome message “Welcome to the UCC API”.
 Okay, now let’s get Josephine Akonobea Bekoe’s student profile details by first making a post
 request to the following endpoint:
 http post http://api.ucc.edu.test/academic/login.php
-regno=”PS/CSC/17/00**” password=”password”
+regno=”PS/CSC/15/00**” password=”password”
 
 ![request](https://user-images.githubusercontent.com/7442471/187428648-2bba12ef-ddb8-4549-9f3b-771d237b7500.png)
 
@@ -56,7 +56,7 @@ regno=”PS/CSC/17/00**” password=”password”
 1.	Access Token – used for accessing the student’s details
 2.	New Token – used for generating new access token when the access token expires.
 An access token can be used to retrieve student’s data by making a request that include the access token in the authorization header of the http request like so:
-http http://api.ucc.edu.test/academic/student "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTU1OTA1MjF9.XmfHfloV9xJ6kfZVnze0BouS4mYJeX3NGHV1Ygbj8sw"
+```http http://api.ucc.edu.test/academic/student "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTU1OTA1MjF9.XmfHfloV9xJ6kfZVnze0BouS4mYJeX3NGHV1Ygbj8sw"```
 
 For the purpose of our demonstration, the access token is set to expire in 20s. When an access token expires, a student’s detail cannot be obtained by the expired token and therefore a new one should be generated using the value of the new_token property in the response body of our request. 
 
@@ -64,18 +64,18 @@ For the purpose of our demonstration, the access token is set to expire in 20s. 
  
 
 A new access token can be requested through the following endpoint using the new_token value:
-http http://api.ucc.edu.test/academic/renew.php token=eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTYwMjM3OTV9.RaAXe5LWcXeBUJsmdMWJnQvtQf3nzRGdI8zNpFXf9Os
+```http http://api.ucc.edu.test/academic/renew.php``` token=eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTYwMjM3OTV9.RaAXe5LWcXeBUJsmdMWJnQvtQf3nzRGdI8zNpFXf9Os
 ![new_access_token](https://user-images.githubusercontent.com/7442471/187430026-57e9e270-b0b6-447b-b772-4bf53ce628ef.png)
 
 
 The new access token can be used to request a resource in the following way:
 
-http http://api.ucc.edu.test/academic/student "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTU1OTE5Mjh9.GL6SbQRhfdvWPlIicC6pcbNCF0Z5_p7uO2SrP7KqS0s"
+```http http://api.ucc.edu.test/academic/student "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTU1OTE5Mjh9.GL6SbQRhfdvWPlIicC6pcbNCF0Z5_p7uO2SrP7KqS0s"```
 
 Using the new access token to retrieve a student record will yield the following response:
 
-http http://api.ucc.edu.test/academic/student "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTU1OTE5Mjh9.GL6SbQRhfdvWPlIicC6pcbNCF0Z5_p7uO2SrP7KqS0s"
-
+```http http://api.ucc.edu.test/academic/student "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJzdWIiOiJQU1wvQ1NDXC8xN1wvMDA2NiIsImV4cGlyZXNfaW4iOjE2NTU1OTE5Mjh9.GL6SbQRhfdvWPlIicC6pcbNCF0Z5_p7uO2SrP7KqS0s"
+```
 ```
 HTTP/1.1 200 OK
 Connection: Keep-Alive
